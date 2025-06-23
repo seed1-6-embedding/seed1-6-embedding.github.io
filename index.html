@@ -321,6 +321,233 @@
     </div>
   </div>
 
+  <div class="section-content">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3">
+            <span class="lang-en">Performance</span>
+            <span class="lang-zh" style="display: none;">效果</span>
+          </h2>
+          
+          <div class="performance-section">
+            <div style="margin-bottom: 2rem;">
+                <h3 class="title is-5">C-MTEB (Chinese)</h3>
+                <div class="table-container">
+                  <table class="table is-bordered is-striped is-narrow is-hoverable is-fullwidth performance-table">
+                    <thead>
+                      <tr>
+                        <th class="model-column has-text-centered">Model</th>
+                        <th>AVG</th>
+                        <th>Classification</th>
+                        <th>Clustering</th>
+                        <th>Pair Classification</th>
+                        <th>Reranking</th>
+                        <th>Retrieval</th>
+                        <th>STS</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr class="highlight-row">
+                        <td class="has-text-centered"><strong>Seed1.6-Embedding</strong></td>
+                        <td>75.66</td>
+                        <td>78.20</td>
+                        <td>73.11</td>
+                        <td>88.71</td>
+                        <td>71.65</td>
+                        <td>79.69</td>
+                        <td>68.93</td>
+                      </tr>
+                      <tr class="highlight-row">
+                        <td class="has-text-centered">Seed1.5-Embedding</td>
+                        <td>74.87</td>
+                        <td>79.37</td>
+                        <td>71.11</td>
+                        <td>89.57</td>
+                        <td>70.14</td>
+                        <td>79.33</td>
+                        <td>66.56</td>
+                      </tr>
+                      <tr>
+                        <td class="has-text-centered">Conan-embedding-v2</td>
+                        <td>74.24</td>
+                        <td>76.47</td>
+                        <td>68.84</td>
+                        <td>92.44</td>
+                        <td>74.41</td>
+                        <td>78.31</td>
+                        <td>65.48</td>
+                      </tr>
+                      <tr>
+                        <td class="has-text-centered">Qwen3-Embedding-8B</td>
+                        <td>73.84</td>
+                        <td>76.97</td>
+                        <td>80.08</td>
+                        <td>84.23</td>
+                        <td>66.99</td>
+                        <td>78.21</td>
+                        <td>63.53</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+            </div>
+            <div style="margin-bottom: 2rem;">
+                <h3 class="title is-5">Visual Evaluation Results</h3>
+                <div class="table-container">
+                    <table class="table is-bordered is-striped is-narrow is-hoverable is-fullwidth performance-table">
+                        <thead>
+                            <tr>
+                                <th class="model-column has-text-centered">Model</th>
+                                <th>Overall</th>
+                                <th>Image-Overall</th>
+                                <th>Video-Overall</th>
+                                <th>Visdoc-Overall</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="highlight-row">
+                                <td class="has-text-centered"><a href="#">seed-1.6-embedding</a></td>
+                                <td>71.57</td>
+                                <td>77.78</td>
+                                <td>55.34</td>
+                                <td>74.41</td>
+                            </tr>
+                            <tr class="highlight-row">
+                                <td class="has-text-centered"><a href="#">VLM2Vec-V2.0-Qwen2VL-2B</a></td>
+                                <td>58.39</td>
+                                <td>64.85</td>
+                                <td>34.85</td>
+                                <td>66.34</td>
+                            </tr>
+                            <tr>
+                                <td class="has-text-centered"><a href="#">gme-Qwen2-VL-2B-Instruct</a></td>
+                                <td>54.37</td>
+                                <td>51.89</td>
+                                <td>33.86</td>
+                                <td>73.47</td>
+                            </tr>
+                            <tr>
+                                <td class="has-text-centered"><a href="#">VLM2Vec-V1-Qwen2VL-7B</a></td>
+                                <td>52.33</td>
+                                <td>65.49</td>
+                                <td>34.01</td>
+                                <td>46.32</td>
+                            </tr>
+                            <tr>
+                                <td class="has-text-centered"><a href="#">LamRA-Ret-Qwen2.5VL-7b</a></td>
+                                <td>47.76</td>
+                                <td>52.43</td>
+                                <td>33.68</td>
+                                <td>51.32</td>
+                            </tr>
+                            <tr>
+                                <td class="has-text-centered"><a href="#">VLM2Vec-V1-Qwen2VL-2B</a></td>
+                                <td>47.14</td>
+                                <td>59.74</td>
+                                <td>28.97</td>
+                                <td>41.85</td>
+                            </tr>
+                            <tr>
+                                <td class="has-text-centered"><a href="#">colpali-v1.3</a></td>
+                                <td>44.54</td>
+                                <td>34.89</td>
+                                <td>28.28</td>
+                                <td>71.22</td>
+                            </tr>
+                            <tr>
+                                <td class="has-text-centered"><a href="#">LamRA-Ret</a></td>
+                                <td>40.47</td>
+                                <td>54.08</td>
+                                <td>35.24</td>
+                                <td>23.97</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-content">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3">
+            <span class="lang-en">Usage</span>
+            <span class="lang-zh" style="display: none;">使用方法</span>
+          </h2>
+          <div class="content has-text-left">
+            <div class="code-container">
+              <button class="copy-button" onclick="copyCode(this)">
+                <span class="lang-en">Copy</span>
+                <span class="lang-zh" style="display: none;">复制</span>
+              </button>
+              <!-- 英文版代码 -->
+              <pre class="lang-en"><code class="language-python">
+                from volcenginesdkarkruntime import Ark
+
+                client = Ark()
+                
+                print("----- multimodal embeddings request -----")
+                resp = client.multimodal_embeddings.create(
+                    model="doubao-embedding-vision-250615",
+                    input=[
+                        {
+                            "type":"text",
+                            "text":"天很蓝，海很深"
+                        },
+                        {
+                            "type": "image_url",
+                            "image_url": {
+                                "url": "https://ark-project.tos-cn-beijing.volces.com/images/view.jpeg"
+                            }
+                        }
+                    ]
+                )
+                print(resp)
+                </code></pre>
+
+              <!-- 中文版代码 -->
+              <pre class="lang-zh" style="display: none;"><code class="language-python">
+                from volcenginesdkarkruntime import Ark
+
+                client = Ark()
+                
+                print("----- multimodal embeddings request -----")
+                resp = client.multimodal_embeddings.create(
+                    model="doubao-embedding-vision-250615",
+                    input=[
+                        {
+                            "type":"text",
+                            "text":"天很蓝，海很深"
+                        },
+                        {
+                            "type": "image_url",
+                            "image_url": {
+                                "url": "https://ark-project.tos-cn-beijing.volces.com/images/view.jpeg"
+                            }
+                        }
+                    ]
+                )
+                print(resp)
+                </code></pre>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+  
+
+
 
 
 <footer class="footer">
