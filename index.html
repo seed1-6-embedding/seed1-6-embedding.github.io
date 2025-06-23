@@ -393,7 +393,7 @@
                 </div>
             </div>
             <div style="margin-bottom: 2rem;">
-                <h3 class="title is-5">Visual Evaluation Results</h3>
+                <h3 class="title is-5">MMEB-V2</h3>
                 <div class="table-container">
                     <table class="table is-bordered is-striped is-narrow is-hoverable is-fullwidth performance-table">
                         <thead>
@@ -407,56 +407,56 @@
                         </thead>
                         <tbody>
                             <tr class="highlight-row">
-                                <td class="has-text-centered"><a href="#">seed-1.6-embedding</a></td>
+                                <td class="has-text-centered">seed-1.6-embedding</td>
                                 <td>71.57</td>
                                 <td>77.78</td>
                                 <td>55.34</td>
                                 <td>74.41</td>
                             </tr>
                             <tr class="highlight-row">
-                                <td class="has-text-centered"><a href="#">VLM2Vec-V2.0-Qwen2VL-2B</a></td>
+                                <td class="has-text-centered">VLM2Vec-V2.0-Qwen2VL-2B</td>
                                 <td>58.39</td>
                                 <td>64.85</td>
                                 <td>34.85</td>
                                 <td>66.34</td>
                             </tr>
                             <tr>
-                                <td class="has-text-centered"><a href="#">gme-Qwen2-VL-2B-Instruct</a></td>
+                                <td class="has-text-centered">gme-Qwen2-VL-2B-Instruct</td>
                                 <td>54.37</td>
                                 <td>51.89</td>
                                 <td>33.86</td>
                                 <td>73.47</td>
                             </tr>
                             <tr>
-                                <td class="has-text-centered"><a href="#">VLM2Vec-V1-Qwen2VL-7B</a></td>
+                                <td class="has-text-centered">VLM2Vec-V1-Qwen2VL-7B</td>
                                 <td>52.33</td>
                                 <td>65.49</td>
                                 <td>34.01</td>
                                 <td>46.32</td>
                             </tr>
                             <tr>
-                                <td class="has-text-centered"><a href="#">LamRA-Ret-Qwen2.5VL-7b</a></td>
+                                <td class="has-text-centered">LamRA-Ret-Qwen2.5VL-7b</td>
                                 <td>47.76</td>
                                 <td>52.43</td>
                                 <td>33.68</td>
                                 <td>51.32</td>
                             </tr>
                             <tr>
-                                <td class="has-text-centered"><a href="#">VLM2Vec-V1-Qwen2VL-2B</a></td>
+                                <td class="has-text-centered">VLM2Vec-V1-Qwen2VL-2B</td>
                                 <td>47.14</td>
                                 <td>59.74</td>
                                 <td>28.97</td>
                                 <td>41.85</td>
                             </tr>
                             <tr>
-                                <td class="has-text-centered"><a href="#">colpali-v1.3</a></td>
+                                <td class="has-text-centered">colpali-v1.3</td>
                                 <td>44.54</td>
                                 <td>34.89</td>
                                 <td>28.28</td>
                                 <td>71.22</td>
                             </tr>
                             <tr>
-                                <td class="has-text-centered"><a href="#">LamRA-Ret</a></td>
+                                <td class="has-text-centered">LamRA-Ret</td>
                                 <td>40.47</td>
                                 <td>54.08</td>
                                 <td>35.24</td>
@@ -489,53 +489,49 @@
                 <span class="lang-zh" style="display: none;">复制</span>
               </button>
               <!-- 英文版代码 -->
-              <pre class="lang-en"><code class="language-python">
-                from volcenginesdkarkruntime import Ark
+              <pre class="lang-en"><code class="language-python">from volcenginesdkarkruntime import Ark
+client = Ark()
 
-                client = Ark()
-                
-                print("----- multimodal embeddings request -----")
-                resp = client.multimodal_embeddings.create(
-                    model="doubao-embedding-vision-250615",
-                    input=[
-                        {
-                            "type":"text",
-                            "text":"天很蓝，海很深"
-                        },
-                        {
-                            "type": "image_url",
-                            "image_url": {
-                                "url": "https://ark-project.tos-cn-beijing.volces.com/images/view.jpeg"
-                            }
-                        }
-                    ]
-                )
-                print(resp)
+print("----- multimodal embeddings request -----")
+resp = client.multimodal_embeddings.create(
+    model="doubao-embedding-vision-250615",
+    input=[
+        {
+            "type":"text",
+            "text":"天很蓝，海很深"
+        },
+        {
+            "type": "image_url",
+            "image_url": {
+                "url": "https://ark-project.tos-cn-beijing.volces.com/images/view.jpeg"
+            }
+        }
+    ]
+)
+print(resp)
                 </code></pre>
 
               <!-- 中文版代码 -->
-              <pre class="lang-zh" style="display: none;"><code class="language-python">
-                from volcenginesdkarkruntime import Ark
+              <pre class="lang-zh" style="display: none;"><code class="language-python">from volcenginesdkarkruntime import Ark
+client = Ark()
 
-                client = Ark()
-                
-                print("----- multimodal embeddings request -----")
-                resp = client.multimodal_embeddings.create(
-                    model="doubao-embedding-vision-250615",
-                    input=[
-                        {
-                            "type":"text",
-                            "text":"天很蓝，海很深"
-                        },
-                        {
-                            "type": "image_url",
-                            "image_url": {
-                                "url": "https://ark-project.tos-cn-beijing.volces.com/images/view.jpeg"
-                            }
-                        }
-                    ]
-                )
-                print(resp)
+print("----- multimodal embeddings request -----")
+resp = client.multimodal_embeddings.create(
+    model="doubao-embedding-vision-250615",
+    input=[
+        {
+            "type":"text",
+            "text":"天很蓝，海很深"
+        },
+        {
+            "type": "image_url",
+            "image_url": {
+                "url": "https://ark-project.tos-cn-beijing.volces.com/images/view.jpeg"
+            }
+        }
+    ]
+)
+print(resp)
                 </code></pre>
             </div>
           </div>
