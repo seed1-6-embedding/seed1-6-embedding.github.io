@@ -293,6 +293,10 @@
                 </span>
               </div>
             </div>
+            <div class="has-text-centered">
+              <img src="./static/images/model.png" alt="Seed1.6-Embedding model" style="border-radius: 15px;">
+              <!-- <img src="./static/images/model_info.png" alt="Seed1.6-Embedding Logo" style="border-radius: 15px;"> -->
+            </div>
 
 
           </div>
@@ -313,22 +317,196 @@
             <!-- 英文版介绍 -->
             <div class="lang-en">
               <p>
-                We launched Seed-1.6-Embedding, a powerful embedding model built on Seed1.6-flash. It supports multimodal tasks such as plain text, images, and videos, and achieved a new SOTA score on the mteb Chinese list for plain text tasks. It also has the best performance on the multimodal evaluation list mmeb. It supports multiple embedding dimensions - [2048, 1024] - with minimal performance degradation in low dimensions.
+                We launched Seed-1.6-Embedding, a powerful embedding model built on Seed1.6-flash. It stands out with the following key features:
               </p>
+              <ul>
+                <li>
+                  <strong>Multimodal Hybrid Retrieval</strong>: Supports hybrid retrieval among text, image, and video modalities.
+                </li>
+                <li>
+                  <strong>SOTA Performance</strong>: Achieved a new SOTA score on the CMTEB leaderboard for plain text tasks and MMEB-V2 leaderboard for multimodal tasks. 
+                </li>
+                <li>
+                  <strong>Flexibility</strong>: Supports multiple embedding dimensions -[2048, 1024] with minimal performance degradation at lower dimensions.
+                </li>
+              </ul>
 
             </div>
             <!-- 中文版介绍 -->
             <div class="lang-zh" style="display: none;">
               <p>
-                我们推出了 Seed-1.6-Embedding，这是一个基于Seed1.6-flash构建的强大嵌入模型。它支持纯文本、图像、视频等多模态任务，在纯文本任务上，mteb中文榜单上取得新的SOTA分数。在多模态评测榜单mmeb同样是最佳的性能。支持多种嵌入维度 - [2048, 1024] - 在低维度下性能下降极小。
+                我们推出了 Seed-1.6-Embedding，这是一个基于Seed1.6-flash构建的强大嵌入模型。它具有以下关键特性: 
               </p>
+              <ul>
+                <li>
+                  <strong>多模态混合检索</strong>: 支持文本、图像和视频模态之间的混合检索。
+                </li>
+                <li>
+                  <strong>SOTA性能</strong>: 在纯文本任务的CMTEB排行榜和多模态任务的MMEB-V2排行榜上均取得了新的SOTA分数。 
+                </li>
+                <li>
+                  <strong>灵活性</strong>: 支持多种嵌入维度 —[2048, 1024] 在较低维度下仍保持较好效果。
+                </li>
+              </ul>
+
 
             </div>
           </div>
+          <h3 class="title is-5">
+            <span class="lang-en">Model Architecture</span>
+            <span class="lang-zh" style="display: none;">模型结构</span>
+          </h3>
+          <div class="content has-text-justified">
+            <!-- 英文版介绍 -->
+            <div class="lang-en">
+              <p>
+                The model architecture is based on seed1.6-flash, which fully preserves and enhances the model's multimodal understanding capabilities for text, images, videos, and mixed modalities. It is based on a dual-tower structure, with the embedding vector extracted corresponding to the last hidden layer vector of the [EOS] token.
+              </p>
+            </div>
+            <!-- 中文版介绍 -->
+            <div class="lang-zh" style="display: none;">
+              <p>
+                基于seed1.6-flash，充分保留和增强模型对于文本、图片、视频以及混合模态的多模态理解能力，基于双塔结构，embedding向量提取与[EOS]token 对应的最后一层隐向量。
+              </p>
+            </div>
+          </div>
+
         </div>
       </div>
     </div>
   </div>
+
+  <div class="section-content">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3">
+            <span class="lang-en">Training Method</span>
+            <span class="lang-zh" style="display: none;">训练方法</span>
+          </h2>
+          
+          <div class="content has-text-justified">
+            <!-- 英文版介绍 -->
+            <div class="lang-en">
+              <p>
+                During the construction of the embedding model, we employed a phased training strategy to progressively improve model performance and successfully developed the powerful doubao-embedding-vision model. The entire training process consists of three core stages.
+              </p>
+            </div>
+            <!-- 中文版介绍 -->
+            <div class="lang-zh" style="display: none;">
+              <p>
+                在 embedding 模型的构建过程中，我们使用了分阶段训练策略，逐步提升模型性能，最终成功塑造出功能强大的 doubao-embedding-vision 模型。整个训练流程由三个核心阶段组成。
+              </p>
+            </div>
+          </div>
+          <h3 class="title is-5">
+            <span>Stage1: Text Continue Training</span>
+          </h3>
+          <div class="content has-text-justified">
+            <!-- 英文版介绍 -->
+            <div class="lang-en">
+              <p>
+                <strong>Training Objectives</strong>: The objective of this stage is to endow the model with basic embedding capabilities, transforming the VLM model into one that possesses embedding capabilities.
+              </p>
+            </div>
+            <!-- 中文版介绍 -->
+            <div class="lang-zh" style="display: none;">
+              <p>
+                <strong>训练目标</strong>: 这一阶段的目标是赋予模型基础的 embedding 能力，将vlm模型转变为具备embedding模型。
+              </p>
+            </div>
+          </div>
+          <div class="content has-text-justified">
+            <!-- 英文版介绍 -->
+            <div class="lang-en">
+              <p>
+                <strong>Training Strategy</strong>: We utilized large-scale pure text data as training data, which includes multi-domain public data collected from the internet and some synthetic data. For public data, we designed sophisticated data cleaning algorithms and filtering rules to remove noise, duplicate content, and irrelevant information, ensuring high-quality data. Synthetic data, on the other hand, is expanded based on specific seed data using large language models, enabling the synthetic data to cover various domain knowledge and topics. During training, each sample is a text pair, and the InfoNCE loss function is used for contrastive learning.
+              </p>
+            </div>
+            <!-- 中文版介绍 -->
+            <div class="lang-zh" style="display: none;">
+              <p>
+                <strong>训练策略</strong>: 我们使用了大规模纯文本数据作为训练数据，涵盖了从互联网采集的多领域公开数据以及部分合成数据。对于公开数据，我们设计了精巧的数据清洗算法和过滤规则，去除其中的噪声、重复内容以及无关信息，保证数据的高质量。而合成数据则是基于特定的种子数据，借助大语言模型进行扩展，使得合成的数据能够覆盖各类不同的领域知识和话题。训练过程中，每条样本是一个文本对，并采用 infoNce 损失函数进行对比学习。
+              </p>
+            </div>
+          </div>
+
+          <!-- stage2 -->
+
+          <h3 class="title is-5">
+            <span>Stage 2: Multimodal Continue Training</span>
+          </h3>
+          <div class="content has-text-justified">
+            <!-- 英文版介绍 -->
+            <div class="lang-en">
+              <p>
+                <strong>Training Objectives</strong>: Building on the previous stage, the objective is to add multimodal alignment capabilities for text, images, and videos.
+              </p>
+            </div>
+            <!-- 中文版介绍 -->
+            <div class="lang-zh" style="display: none;">
+              <p>
+                <strong>训练目标</strong>: 在上一阶段的基础上，增加文、图、视频的多模态对齐能力。
+              </p>
+            </div>
+          </div>
+          <div class="content has-text-justified">
+            <!-- 英文版介绍 -->
+            <div class="lang-en">
+              <p>
+                <strong>Training Strategy</strong>: We collected a large-scale dataset of tens of millions of image-text pairs and video-text pairs for training. A portion of this raw data was sourced from the internet. To ensure data quality, we first conducted rigorous cleaning and filtering of the images, removing those that were blurry, damaged, or low-resolution. Additionally, to construct high-quality image-text pairs, we designed a data production process to obtain accurate and detailed captions from the raw images, ensuring precise semantic alignment between images and text. During training, we again employed the InfoNCE loss function, optimizing the distance between image-text pairs in the vector space to continuously enhance the model's understanding of multimodal data.
+              </p>
+            </div>
+            <!-- 中文版介绍 -->
+            <div class="lang-zh" style="display: none;">
+              <p>
+                <strong>训练策略</strong>: 我们收集了千万级规模的图文对、视频-文对数据用于训练。这些原始数据一部分采集自互联网，为确保数据质量，首先对其中的图片进行严格的清洗和过滤，剔除模糊、损坏、低分辨率等不合格的图片。同时，为了构建高质量的图文样本对，我们设计了一套数据生产流程，从原始图片中获取准确、详细的 caption，使图文语义实现精准匹配。在训练过程中，同样采用 infoNce 损失函数，通过优化图文对在向量空间中的距离，不断强化模型对多模态数据的理解能力。
+              </p>
+            </div>
+          </div>
+
+          <!-- stage 3 -->
+
+          <h3 class="title is-5">
+            <span>Stage 3: Fine-Tuning</span>
+          </h3>
+          <div class="content has-text-justified">
+            <!-- 英文版介绍 -->
+            <div class="lang-en">
+              <p>
+                <strong>Training Objectives</strong>: The objective of this stage is to comprehensively improve the model's ability to handle various niche scenarios and complex tasks by introducing data of different forms, modalities, and task types. This will enable the model to better meet the practical application requirements of information retrieval and content classification.
+              </p>
+            </div>
+            <!-- 中文版介绍 -->
+            <div class="lang-zh" style="display: none;">
+              <p>
+                <strong>训练目标</strong>: 这一阶段的目标是通过引入不同形式、模态以及任务类型的数据，全面提升模型在各类细分场景和复杂任务下的处理能力，使其能够更好地适配信息检索、内容分类等实际应用需求。
+              </p>
+            </div>
+          </div>
+          <div class="content has-text-justified">
+            <!-- 英文版介绍 -->
+            <div class="lang-en">
+              <p>
+                <strong>Training Strategy</strong>: We systematically constructed a high-quality fine-tuning dataset by focusing on three key dimensions: task type, input data modality, and task scenario. On one hand, we referenced the task types and data structures of publicly available benchmark datasets. On the other hand, we closely integrated the actual business needs and extensive experience of ByteEngine to create dozens of datasets for different tasks. For each dataset, we designed specific instructions tailored to its characteristics and scenario requirements, guiding the model to learn the logic of handling specific tasks and to develop a certain level of generalization ability. For scenarios and tasks with limited training data, we applied data augmentation and synthesis techniques to expand the data scale. For more challenging tasks with poor training outcomes, we targeted the mining of negative samples at different difficulty levels to improve the model's performance in complex tasks. Finally, we conducted mixed training on all datasets, iterating through multiple rounds of optimization. This process enabled the Doubao-Embedding-Vision model to demonstrate strong generalization capabilities and excellent performance across various niche scenarios.
+              </p>
+            </div>
+            <!-- 中文版介绍 -->
+            <div class="lang-zh" style="display: none;">
+              <p>
+                <strong>训练策略</strong>: 我们从任务类型、输入数据模态、任务场景三个关键维度出发，系统性地构建高质量的微调数据集。一方面参考公开评测集的任务类型和数据结构，另一方面紧密结合火山引擎的实际业务需求与丰富经验，构建了数十个不同任务的数据集。针对每个数据集的特点和场景需求，我们设计了专属的指令，以引导模型学习特定任务的处理逻辑，并具备一定的泛化能力。对于部分训练数据匮乏的场景和任务，我们运用数据增强和合成技术，扩充数据规模；对于难度较高，训练效果不佳的任务，定向挖掘不同难度层次的负样本，以此提升模型在复杂任务下的表现。最后，将所有数据集进行混合训练，经过多轮迭代优化，使得 doubao-embedding-vision 模型在不同的细分场景下都展现出强大的泛化能力和优异的性能表现。
+              </p>
+            </div>
+          </div>
+
+    
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+  
 
   <div class="section-content">
     <div class="container is-max-desktop">
@@ -341,6 +519,20 @@
           
           <div class="performance-section">
             <div style="margin-bottom: 2rem;">
+              <div class="content has-text-justified">
+                <!-- 英文版介绍 -->
+                <div class="lang-en">
+                  <p>
+                    In the authoritative leaderboards that best reflect the model's generalization ability, Seed1.6-Embedding has demonstrated significant advantages:
+                  </p>
+                </div>
+                <!-- 中文版介绍 -->
+                <div class="lang-zh" style="display: none;">
+                  <p>
+                    在最能体现模型泛化能力的权威榜单中，Seed1.6-Embedding 均展现出显著优势:
+                  </p>
+                </div>
+              </div>
                 <h3 class="title is-5">C-MTEB (Chinese)</h3>
                 <div class="table-container">
                   <table class="table is-bordered is-striped is-narrow is-hoverable is-fullwidth performance-table">
@@ -400,6 +592,21 @@
                     </tbody>
                   </table>
                 </div>
+                <div class="content has-text-justified">
+                  <!-- 英文版介绍 -->
+                  <div class="lang-en">
+                    <p>
+                      <strong>Pure Text Tasks</strong>: On the CMTEB Chinese Text Vector Evaluation leaderboard, our model has set a new SOTA with a high score of 75.62, continuing to lead in general tasks such as retrieval, classification, and semantic matching.
+                    </p>
+                  </div>
+                  <!-- 中文版介绍 -->
+                  <div class="lang-zh" style="display: none;">
+                    <p>
+                      <strong>纯文本任务</strong>: 在 CMTEB 中文文本向量评测榜单上，模型以75.62高分刷新榜单 SOTA，在检索、分类、语义匹配等通用任务表现持续领跑。
+                    </p>
+                  </div>
+                </div>
+
             </div>
             <div style="margin-bottom: 2rem;">
                 <h3 class="title is-5">MMEB-V2</h3>
@@ -474,6 +681,22 @@
                         </tbody>
                     </table>
                 </div>
+                <div class="content has-text-justified">
+                  <!-- 英文版介绍 -->
+                  <div class="lang-en">
+                    <p>
+                      <strong>Multimodal Tasks</strong>: On the MMEB_v2 multimodal evaluation leaderboard, the model has topped the SOTA in both image and video tasks, achieving a significant lead. Specifically, on the MMEB_v2 Image leaderboard, the model scored an impressive 77.78, leading the second place by 5.6 points. In the newly added video modality, the model has also achieved a substantial lead on the MMEB_v2 Video leaderboard, outperforming the second place by 20.1 points.
+
+                    </p>
+                  </div>
+                  <!-- 中文版介绍 -->
+                  <div class="lang-zh" style="display: none;">
+                    <p>
+                      <strong>多模态任务</strong>: 在多模态评测榜单 MMEB_v2中，模型的图片、视频向量化任务双双登顶 SOTA，并实现断层领先。其中在 MMEB_v2 Image 榜单上，模型以77.78的高分领先第二名5.6分；模型新增的视频模态，在 MMEB_v2 video 榜单大幅领先第二名20.1分。
+                    </p>
+                  </div>
+                </div>
+
             </div>
 
 
